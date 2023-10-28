@@ -10,6 +10,9 @@ export const StyledText = styled.p`
     ${({ $appreciation }) => ($appreciation ? '#00ff00' : '#ff0000')};
   border-radius: 5px;
   text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const SectionContainer = styled.section`
@@ -17,6 +20,10 @@ export const SectionContainer = styled.section`
   padding: 20px;
   margin: 10px;
   border: 1px solid #ddd;
+  max-width: 350px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 20px;
 `;
 
 export const SectionTitle = styled.h2`

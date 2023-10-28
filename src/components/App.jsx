@@ -7,44 +7,31 @@ import { Section } from './Feedback-Widget/Section';
 import { FeedbackContainer } from './AppStyled.Styled';
 
 export const App = () => {
- const [good, setGood] = useState(0);
+  const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   const [total, setTotal] = useState(0);
   const [showAppreciation, setShowAppreciation] = useState(false);
   const options = ['Good', 'Neutral', 'Bad'];
+
   const handleLeaveFeedback = option => {
-    // this.setState(
-    //   prevState => ({
-    //     [option]: prevState[option] + 1,
-    //     showAppreciation: true,
-    //   }),
-    //   () => {
-    //     const { good, neutral, bad } = this.state;
-    //     const total = good + neutral + bad;
-    //     const positive = total > 0 ? Math.round((good / total) * 100) : 0;
-    //     this.setState({ total, positive });
-    //   }
-    // );
-    
-      setShowAppreciation(showAppreciation: true),
-setTotal(prevState => prevState + 1),
-      switch
-    good + 1
-    break
-    neutral + 1
-    break
-    bad + 1
-    break
-
-    if (total > 0) {
-      Math.round((good / total) * 100): 0;
+    switch (option) {
+      case 'Good':
+        setGood(prevGood => prevGood + 1);
+        break;
+      case 'Neutral':
+        setNeutral(prevNeutral => prevNeutral + 1);
+        break;
+      case 'Bad':
+        setBad(prevBad => prevBad + 1);
+        break;
+      default:
+        break;
     }
-    setPositive(positive)
-     setTotal(total)
-    
-
+    setTotal(prevState => prevState + 1);
+    setShowAppreciation(true);
   };
+
   return (
     <FeedbackContainer>
       <h1>Please leave feedback</h1>
@@ -63,7 +50,7 @@ setTotal(prevState => prevState + 1),
               message={'We appreciate your feedback 😊'}
               appreciation={showAppreciation}
             />
-            <Statistics />
+            <Statistics good={good} neutral={neutral} bad={bad} />
           </>
         ) : (
           <Notification message={'There is zero feedback 😔'} />
@@ -72,59 +59,3 @@ setTotal(prevState => prevState + 1),
     </FeedbackContainer>
   );
 };
-
-// export class App extends React.Component {
-//   state = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//     showAppreciation: false,
-//   };
-
-// handleLeaveFeedback = option => {
-//   this.setState(
-//     prevState => ({
-//       [option]: prevState[option] + 1,
-//       showAppreciation: true,
-//     }),
-//     () => {
-//       const { good, neutral, bad } = this.state;
-//       const total = good + neutral + bad;
-//       const positive = total > 0 ? Math.round((good / total) * 100) : 0;
-//       this.setState({ total, positive });
-//     }
-//   );
-// };
-
-//   render() {
-//     const { total } = this.state;
-//     const options = ['good', 'neutral', 'bad'];
-
-//     return (
-// <FeedbackContainer>
-//   <h1>Please leave feedback</h1>
-
-//   <Section title="Feedback Options">
-//     <FeedbackOptions
-//       options={options}
-//       onLeaveFeedback={this.handleLeaveFeedback}
-//     />
-//   </Section>
-
-//   <Section title="Statistics">
-//     {total > 0 ? (
-//       <>
-//         <Notification
-//           message={'We appreciate your feedback 😊'}
-//           appreciation={this.state.showAppreciation}
-//         />
-//         <Statistics {...this.state} />
-//       </>
-//     ) : (
-//       <Notification message={'There is zero feedback 😔'} />
-//     )}
-//   </Section>
-// </FeedbackContainer>
-//     );
-//   }
-// }
