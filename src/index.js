@@ -5,7 +5,7 @@ import './index.css';
 import { GlobalStyles } from './styles/Global';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.StrictMode basename="/vugar-gasimov/">
     <App />
     <GlobalStyles />
   </React.StrictMode>
